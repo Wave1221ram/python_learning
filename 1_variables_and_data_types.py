@@ -36,3 +36,35 @@ running = False
 print(f"Are you online?: {online}")
 print(f"Is the item for sale?: {for_sale}")
 print(f"Game running: {running}")
+
+
+# ---------------------------------------
+
+if running:
+    print("The game is running")
+else:
+    print("The game is over")
+
+
+# region set multiple variables to different values
+x = 1
+y = 2
+z = 3
+
+x, y, z = 1, 2, 3
+# endregion
+
+# region set multiple variables to the same value
+x = 1
+y = 1
+z = 1
+
+x = y = z = 1
+# endregion
+
+
+# ---------------------------------------
+# New Keywords:
+
+# print()
+# f string (f"text {variable}")
