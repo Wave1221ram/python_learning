@@ -44,10 +44,10 @@ odd_digits_sum = sum(math.floor(int(credit_card[i]) * 2 / 10) + (int(credit_card
 print(odd_digits_sum)
 
 
-odd_digits_sum = sum(math.floor(int(credit_card[i]) * 2 / 10) + (int(credit_card[i]) * 2) % 10 for i in range(len(credit_card)-2, 0, -2))
+odd_digits_sum = sum(math.floor(i / 10) + (i) % 10 for i in (credit_card[-1::-1]) * 2)
 print(odd_digits_sum)
     
-credit_card[-1:0:]
+credit_card[-1::-1]
 
 
 

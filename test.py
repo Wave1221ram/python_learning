@@ -98,8 +98,15 @@ system("cls")
 # print(i)
 
 
-i = "12345678"
-print(i[0:])
-print(i[-1:0:-1])
-print(i[-1::-1])
-print(i[-1:-1:-1])
+strings = "12345678"
+# print(i[0:])
+# print(i[-1:0:-1])
+# print(i[-1::-1])
+# print(i[-1:-1:-1])
+
+
+odd_digits_sum = sum(int(i) for i in strings[-1::-1])
+print(odd_digits_sum)
+print(type(odd_digits_sum))
+
+sum()
