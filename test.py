@@ -98,15 +98,76 @@ system("cls")
 # print(i)
 
 
-strings = "12345678"
-# print(i[0:])
-# print(i[-1:0:-1])
-# print(i[-1::-1])
-# print(i[-1:-1:-1])
+# strings = "12345678"
+# # print(i[0:])
+# # print(i[-1:0:-1])
+# # print(i[-1::-1])
+# # print(i[-1:-1:-1])
 
 
-odd_digits_sum = sum(int(i) for i in strings[-1::-1])
-print(odd_digits_sum)
-print(type(odd_digits_sum))
+# # odd_digits_sum = sum(int(i) for i in strings[-1::-1])
+# # print(odd_digits_sum)
+# # print(type(odd_digits_sum))
 
-sum()
+# # sum()
+
+
+# print(strings)
+# print(type(strings))
+
+# test = strings[:]
+
+# print(test)
+# print(type(test))
+
+# test2 = int(strings)
+
+# print(test2)
+# print(type(test2))
+
+# test3 = int(test)
+
+# print(test3)
+# print(type(test3))
+
+# for i in test:
+#     print(i)
+#     print(type(i))
+
+# gene = (i for i in strings)
+# print(gene)
+# print(type(gene))
+
+# my_list = list(gene)
+
+# print(my_list)
+# print(type(my_list))
+
+# print(gene)
+# print(type(gene))
+
+
+# my_list_2 = list(gene)
+
+# print(my_list_2)
+# print(type(my_list_2))
+
+# print(gene)
+# print(type(gene))
+
+
+# my_list_2 = list(gene)
+
+
+test = "123456789"
+
+
+test2 = int(list(test[:]))
+print(test2)
+
+
+my_string = "     this is a string           tttt"
+test3 = list(my_string)
+print(test3)
+print(my_string.strip())
+print(my_string.strip("t"))

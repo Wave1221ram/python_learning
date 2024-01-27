@@ -1,4 +1,5 @@
 import math
+from os import system
 
 # Test Credit Card Account Numbers:
 # American Express 378282246310005
@@ -27,38 +28,63 @@ import math
 # 5. If sum is divisible by 10, the credit card # is valid
 
 # credit_card = input("Please enter your credit card: ").replace(" ", "").replace("_", "")
-credit_card = "378282246310005"
 # 50162883
 # 0034227
 # 0 + 0 + 6 + 8 + 4 + 4 + 14 = 36
 
-print(credit_card)
-odd_digits_sum = sum(int(credit_card[i]) for i in range(len(credit_card)-1, -1, -2))
-# odd_digits_sum = sum(int(credit_card[i]) for i in range(len(credit_card)-2, -1, -2))
-print(odd_digits_sum)
+# print(credit_card)
+# odd_digits_sum = sum(int(credit_card[i]) for i in range(len(credit_card) - 1, -1, -2))
+# # odd_digits_sum = sum(int(credit_card[i]) for i in range(len(credit_card)-2, -1, -2))
+# print(odd_digits_sum)
 
-odd_digits_sum = sum( (math.floor(double_val/10) + double_val%10 if (double_val := (int(credit_card[i]) * 2)) > 10 else double_val) for i in range(len(credit_card)-2, 0, -2))
-print(odd_digits_sum)
+# odd_digits_sum = sum(
+#     (
+#         math.floor(double_val / 10) + double_val % 10
+#         if (double_val := (int(credit_card[i]) * 2)) > 10
+#         else double_val
+#     )
+#     for i in range(len(credit_card) - 2, 0, -2)
+# )
+# print(odd_digits_sum)
 
-odd_digits_sum = sum(math.floor(int(credit_card[i]) * 2 / 10) + (int(credit_card[i]) * 2) % 10 for i in range(len(credit_card)-2, 0, -2))
-print(odd_digits_sum)
+# odd_digits_sum = sum(
+#     math.floor(int(credit_card[i]) * 2 / 10) + (int(credit_card[i]) * 2) % 10
+#     for i in range(len(credit_card) - 2, 0, -2)
+# )
+# print(odd_digits_sum)
+
+system("cls")
+
+# credit_card_list = list("378282246310005",)
+credit_card_list = ("378282246310005",)
+
+for credit_card in credit_card_list:
+    credit_card = (
+        input("Please enter your credit card: ").replace(" ", "").replace("_", "")
+    )
+    even_sum = sum(int(i) for i in tuple(credit_card[-1::-2]))
+    odd_sum = sum(
+        math.floor(int(i) * 2 / 10) + (int(i) * 2) % 10
+        for i in tuple(credit_card[-2::-2])
+    )
+    print("valid" if not (even_sum + odd_sum) % 10 else "invalid")
+
+    # if not (even_sum + odd_sum) % 10:
+    #     print("{}: valid".format(credit_card))
+    # else:
+    #     print("{}: invalid".format(credit_card))
 
 
-odd_digits_sum = sum(math.floor(i / 10) + (i) % 10 for i in (credit_card[-1::-1]) * 2)
-print(odd_digits_sum)
-    
-credit_card[-1::-1]
-
-
-
+credit_card = input("Please enter your credit card: ").replace(" ", "").replace("_", "")
+even_sum = sum(int(i) for i in tuple(credit_card[-1::-2]))
+odd_sum = sum(
+    math.floor(int(i) * 2 / 10) + (int(i) * 2) % 10 for i in tuple(credit_card[-2::-2])
+)
+print("valid" if not (even_sum + odd_sum) % 10 else "invalid")
 
 
 # odd_digits_sum = sum( (math.floor(double_val/10) + double_val%10 if (double_val := (int(credit_card[i]) * 2)) > 10 else double_val) for i in range(len(credit_card)-2, 0, -2))
 # double_val[0] + double_val[1] if double_val := (int(credit_card[i]) * 2) > 10 else double_val
-
-
-
-
 
 
 # sum_odd_digits = 0
@@ -91,3 +117,37 @@ credit_card[-1::-1]
 #     print("VALID")
 # else:
 #     print("INVALID")
+
+
+# Main code:
+
+sum_odd_digits = 0
+sum_even_digits = 0
+total = 0
+
+# Step 1
+card_number = input("Enter a credit card #: ")
+card_number = card_number.replace("-", "")
+card_number = card_number.replace(" ", "")
+card_number = card_number[::-1]
+
+# Step 2
+for x in card_number[::2]:
+    sum_odd_digits += int(x)
+
+# Step 3
+for x in card_number[1::2]:
+    x = int(x) * 2
+    if x >= 10:
+        sum_even_digits += 1 + (x % 10)
+    else:
+        sum_even_digits += x
+
+# Step 4
+total = sum_odd_digits + sum_even_digits
+
+# Step 5
+if total % 10 == 0:
+    print("VALID")
+else:
+    print("INVALID")
